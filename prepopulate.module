@@ -63,7 +63,7 @@ function _prepopulate_request_walk(&$form, &$request_slice) {
     'password',
     'password_confirm',
     'markup',
-    );
+  );
   if (is_array($request_slice)) {
     foreach (array_keys($request_slice) as $request_variable) {
 
@@ -73,10 +73,10 @@ function _prepopulate_request_walk(&$form, &$request_slice) {
       );
       if (array_sum($and_checks) == count($and_checks)) {
         $or_checks = array(
-            'no #type set' => !isset($form[$request_variable]['#type']),
-            'language container' => isset($form[$request_variable]['#language']) && isset($form[$request_variable][$form[$request_variable]['#language']]['#type']) && !in_array($form[$request_variable][$form[$request_variable]['#language']]['#type'], $limited_types),
-            'container' => isset($form[$request_variable]['#type']) && $form[$request_variable]['#type'] == 'container' && isset($form[$request_variable]['#language']) && isset($form[$request_variable][$form[$request_variable]['#language']][0]['#type']) && $form[$request_variable][$form[$request_variable]['#language']][0]['#type'] == 'text_format',
-            'allowed #type' => isset($form[$request_variable]['#type']) && !in_array($form[$request_variable]['#type'], $limited_types),
+          'no #type set' => !isset($form[$request_variable]['#type']),
+          'language container' => isset($form[$request_variable]['#language']) && isset($form[$request_variable][$form[$request_variable]['#language']]['#type']) && !in_array($form[$request_variable][$form[$request_variable]['#language']]['#type'], $limited_types),
+          'container' => isset($form[$request_variable]['#type']) && $form[$request_variable]['#type'] == 'container' && isset($form[$request_variable]['#language']) && isset($form[$request_variable][$form[$request_variable]['#language']][0]['#type']) && $form[$request_variable][$form[$request_variable]['#language']][0]['#type'] == 'text_format',
+          'allowed #type' => isset($form[$request_variable]['#type']) && !in_array($form[$request_variable]['#type'], $limited_types),
         );
         if (array_sum($or_checks) > 0) {
           if (!isset($form[$request_variable]['#access']) || $form[$request_variable]['#access'] != FALSE) {

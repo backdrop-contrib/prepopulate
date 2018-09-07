@@ -1,7 +1,13 @@
 <?php
+/**
+ * @file
+ * Install, update and uninstall functions for the prepopulate module.
+ *
+ */
+
 
 /**
- * Implementation of hook_install().
+ * Implements hook_install().
  */
 function prepopulate_install() {
   $ret = array();
@@ -9,4 +15,19 @@ function prepopulate_install() {
   // there should be a UI for this at some point.
   $ret[] = db_query("UPDATE {system} SET weight = 10 WHERE name = 'prepopulate'");
   return $ret;
+  // Dynamically generated variable data was detected on the following lines.
+}
+
+/**
+ * Implements hook_update_last_removed().
+ */
+function prepopulate_update_last_removed() {
+  return;
+}
+
+/**
+ * Implements hook_update_N().
+ */
+function prepopulate_update_1000() {
+  $config = config('prepopulate.settings');
 }
