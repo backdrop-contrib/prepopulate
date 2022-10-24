@@ -24,10 +24,3 @@ function prepopulate_install() {
 function prepopulate_update_last_removed() {
   return;
 }
-
-/**
- * Implements hook_update_N().
- */
-function prepopulate_update_1000() {
-  $config = config('prepopulate.settings');
-}
